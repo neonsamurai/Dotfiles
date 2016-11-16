@@ -1,0 +1,48 @@
+#!/bin/bash
+# Setup all configuration. This invokes script in /lib
+DOTFILES=$HOME/.dotfiles
+
+# Link the dotfiles ------------------------------------------------------------
+$HOME/.dotfiles/lib/linkdots.sh
+
+# Limits -----------------------------------------------------------------------
+PLIST=$HOME/.dotfiles/plist
+
+ln -sf $PLIST/limit.maxfiles.plist ~/Library/LaunchDaemons/limit.maxfiles.plist
+ln -sf $PLIST/limit.maxproc.plist ~/Library/LaunchDaemons/limit.maxproc.plist
+
+# Emacs ------------------------------------------------------------------------
+# Move .emacs.d out of the way
+EMACSDIR=$HOME/.emcas.d
+if [ -d "$EMACSDIR" ]; then
+    mv $EMACSDIR $EMACSDIR.bak
+fi
+# Install Spacemacs from master
+git clone https://github.com/syl20bnr/spacemacs $HOME/.emacs.d
+# Enable Emacs daemon mode
+ln -sf $PLIST/gnu.emacs.daemon.plist ~/Library/LaunchAgents/gnu.emacs.daemon.plist
+launchctl load -w ~/Library/LaunchAgents/gnu.emacs.daemon.plist
+
+# Install nvm and latest node --------------------------------------------------
+$HOME/.dotfiles/lib/nvm.sh
+
+# Install Node packages --------------------------------------------------------
+$HOME/.dotfiles/lib/node-packages.sh
+
+# Setup postgres default user --------------------------------------------------
+psql postgres -c "CREATE USER postgres; ALTER USER postgres PASSWORD 'postgres'; ALTER USER postgres WITH SUPERUSER;"
+
+# Setup Elixir tooling
+git clone https://github.com/rrrene/bunt $HOME/src/bunt
+cd $HOME/src/bunt
+mix archive.build
+mix archive.install
+
+git clone https://github.com/rrrene/credo $HOME/src/credo
+cd $HOME/src/credo
+mix deps.get
+mix archive.build
+mix archive.install
+
+cd $DOTFILES
+# Set OSX defaults -------------------------------------------------------------

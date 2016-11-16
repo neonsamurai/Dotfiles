@@ -1,0 +1,11 @@
+#!/bin/bash
+# Installs tools and other deps for the dotfiles
+
+# Create path for all my source code
+mkdir -p $HOME/src
+
+# Install AMS (dependency for Brewfile installation)
+brew install ams
+
+# Install Brewfile
+brew bundle --file=$HOME/.dotfiles/Brewfile

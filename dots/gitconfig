@@ -1,0 +1,16 @@
+
+[hub]
+protocol = https
+
+[credential]
+	helper = osxkeychain
+
+[user]
+	name = Tim Jagodzinski
+	email = tim.jagodzinski@gmail.com
+[core]
+	editor = emacsclient
+	autocrlf = input
+	excludesfile = ~/.globalgitignore
+[push]
+	default = simple
