@@ -1,4 +1,5 @@
 tap 'caskroom/cask'
+tap 'caskroom/fonts'
 tap 'homebrew/bundle'
 tap 'homebrew/core'
 tap 'homebrew/services'
@@ -56,8 +57,9 @@ cask 'virtualbox-extension-pack'
 cask 'spotify'
 cask 'steam'
 cask 'vlc'
+cask 'font-source-code-pro'
+cask 'font-source-code-pro-for-powerline'
 mas 'Xcode', id: 497799835
 mas 'Microsoft Remote Desktop', id: 715768417
 mas 'OneDrive', id: 823766827
 mas 'The Unarchiver', id: 425424353
-mas 'Kindle', id: 405399194
