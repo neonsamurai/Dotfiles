@@ -1,11 +1,13 @@
 #!/bin/bash
 # Installs tools and other deps for the dotfiles
+# Install homebrew
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 # Create path for all my source code
 mkdir -p $HOME/src
 
-# Install AMS (dependency for Brewfile installation)
-brew install ams
+# Install Mac App Store Manager (dependency for Brewfile installation)
+brew install mas
 
 # Install Brewfile
 brew bundle --file=$HOME/.dotfiles/Brewfile

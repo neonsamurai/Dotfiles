@@ -35,6 +35,8 @@ brew 'postgresql', restart_service: true
 brew 'rename'
 brew 'ssh-copy-id'
 brew 'shellcheck'
+brew 'python'
+brew 'python3'
 brew 'the_silver_searcher'
 brew 'tree'
 brew 'unrar'

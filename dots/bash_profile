@@ -1,13 +1,3 @@
-export CLICOLOR=1
-export LSCOLORS=ExFxBxDxCxegedabagacad
-eval "$(hub alias -s)"
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-        . `brew --prefix`/etc/bash_completion
-fi
-if [ -f "$(brew --prefix bash-git-prompt)/share/gitprompt.sh" ]; then
-    GIT_PROMPT_THEME=Default
-    source "$(brew --prefix bash-git-prompt)/share/gitprompt.sh"
-fi
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 export PATH="/usr/local/sbin:$PATH"
 export LC_ALL=en_US.UTF-8  
@@ -15,4 +5,32 @@ export LANG=en_US.UTF-8
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
-source $HOME/.bashrc
+# Python setup -----------------------------------------------------------------
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/src
+source /usr/local/bin/virtualenvwrapper.sh
+
+# Aliases ----------------------------------------------------------------------
+eval "$(hub alias -s)"
+alias ll="ls -la"
+alias lt="ls -alt"
+alias l.="ls -dl .*"
+alias ..="cd .."
+alias ...="cd ../.."
+
+# Terminal prompt --------------------------------------------------------------
+export CLICOLOR=1
+export LSCOLORS=ExFxBxDxCxegedabagacad
+eval "$(hub alias -s)"
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+        . `brew --prefix`/etc/bash_completion
+fi
+
+if [ -f "$(brew --prefix bash-git-prompt)/share/gitprompt.sh" ]; then
+    GIT_PROMPT_THEME=Default
+    source "$(brew --prefix bash-git-prompt)/share/gitprompt.sh"
+fi
+
+# NVM -------------------------------------------------------------------------
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

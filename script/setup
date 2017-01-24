@@ -1,4 +1,7 @@
 #!/bin/bash
+# Install homewbrew and packages
+$HOME/.dotfiles/script/bootstrap
+
 # Setup all configuration. This invokes script in /lib
 DOTFILES=$HOME/.dotfiles
 
@@ -44,5 +47,14 @@ mix deps.get
 mix archive.build
 mix archive.install
 
+# Setup Python tooling
+pip install virtualenv
+pip3 install virtualenv
+pip install autoflake
+pip3 install autoflake
+pip install hy
+pip3 install hy
+
 cd $DOTFILES
 # Set OSX defaults -------------------------------------------------------------
+$HOME/.dotfiles/lib/macos-defaults.sh
