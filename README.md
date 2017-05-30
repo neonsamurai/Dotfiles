@@ -3,13 +3,12 @@ My personal dotfiles config
 
 ## Installation
 
-Clone the repository to `~/.dotfiles` and run `script/setup`.
+Get the bootstrap script and pipe it into your shell (Don't pipe it if you want to see what it's doing):
 
 ```bash
-$ git clone https://github.com/neonsamurai/dotfiles ~/.dotfiles
-$ cd !$
-$ ./script/setup
+curl https://raw.githubusercontent.com/neonsamurai/dotfiles/master/script/bootstrap | sh
 ```
+
 
 Get some coffee, this will take a while.
 
