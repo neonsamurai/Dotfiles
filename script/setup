@@ -22,9 +22,6 @@ if [ -d "$EMACSDIR" ]; then
 fi
 # Install Spacemacs from master
 git clone https://github.com/syl20bnr/spacemacs $HOME/.emacs.d
-# Enable Emacs daemon mode
-ln -sf $PLIST/gnu.emacs.daemon.plist ~/Library/LaunchAgents/gnu.emacs.daemon.plist
-launchctl load -w ~/Library/LaunchAgents/gnu.emacs.daemon.plist
 
 # Install nvm and latest node --------------------------------------------------
 $HOME/.dotfiles/lib/nvm.sh
