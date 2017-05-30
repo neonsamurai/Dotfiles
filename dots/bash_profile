@@ -1,7 +1,9 @@
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
-export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/sbin:${PATH}"
+export PATH="${HOME}/.cargo/bin:${PATH}"
 export LC_ALL=en_US.UTF-8  
 export LANG=en_US.UTF-8
+export ALTERNATE_EDITOR=""
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
@@ -17,6 +19,7 @@ alias lt="ls -alt"
 alias l.="ls -dl .*"
 alias ..="cd .."
 alias ...="cd ../.."
+alias emacs="open -a /Applications/Emacs.app"
 
 # Terminal prompt --------------------------------------------------------------
 export CLICOLOR=1
@@ -34,3 +37,7 @@ fi
 # NVM -------------------------------------------------------------------------
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+eval $(/usr/libexec/path_helper -s)
+
+# RBENV -----------------------------------------------------------------------
+eval "$(rbenv init -)"
