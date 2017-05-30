@@ -4,8 +4,11 @@ tap 'homebrew/bundle'
 tap 'homebrew/core'
 tap 'homebrew/services'
 tap 'homebrew/versions'
-cask 'xquartz'
-brew 'ack'
+tap 'd12frosted/emacs-plus'
+mas 'Xcode', id: 497799835
+mas 'Microsoft Remote Desktop', id: 715768417
+mas 'OneDrive', id: 823766827
+mas 'The Unarchiver', id: 425424353cask 'xquartz'
 brew 'aspell', args: ['with-lang-de', 'with-lang-en']
 brew 'autoconf'
 brew 'automake'
@@ -18,6 +21,7 @@ brew 'elasticsearch', restart_service: true
 brew 'erlang'
 brew 'elixir'
 brew 'elm'
+brew 'emacs-plus'
 brew 'gcc'
 brew 'git'
 brew 'git-lfs'
@@ -25,7 +29,6 @@ brew 'gnu-tar'
 brew 'heroku'
 brew 'hub'
 brew 'jsdoc3'
-brew 'kibana', restart_service: true
 brew 'readline'
 brew 'python'
 brew 'python3'
@@ -38,12 +41,14 @@ brew 'shellcheck'
 brew 'python'
 brew 'python3'
 brew 'the_silver_searcher'
+brew 'tmux'
 brew 'tree'
 brew 'unrar'
 brew 'watch'
+brew 'weechat', args: ['with-python', 'with-perl']
 brew 'wget'
-cask 'emacs'
 cask 'iterm2'
+cask 'intellij-idea-ce'
 cask 'dropbox'
 cask 'megasync'
 cask 'tunnelblick'
@@ -58,10 +63,7 @@ cask 'virtualbox'
 cask 'virtualbox-extension-pack'
 cask 'spotify'
 cask 'steam'
+cask 'visual-studio-code'
 cask 'vlc'
 cask 'font-source-code-pro'
 cask 'font-source-code-pro-for-powerline'
-mas 'Xcode', id: 497799835
-mas 'Microsoft Remote Desktop', id: 715768417
-mas 'OneDrive', id: 823766827
-mas 'The Unarchiver', id: 425424353
