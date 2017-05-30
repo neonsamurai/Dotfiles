@@ -11,3 +11,10 @@ brew install mas
 
 # Install Brewfile
 brew bundle --file=$HOME/.dotfiles/Brewfile
+
+# Get dottfiles:
+git clone https://github.com/neonsamurai/dotfiles ~/.dotfiles
+
+cd ~/.dotfiles
+
+./script/setup
