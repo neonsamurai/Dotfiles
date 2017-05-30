@@ -54,6 +54,8 @@ pip install autoflake
 pip3 install autoflake
 pip install hy
 pip3 install hy
+pip install pylint
+pip3 install hy
 
 cd $DOTFILES
 # Set OSX defaults -------------------------------------------------------------
