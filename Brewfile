@@ -8,7 +8,8 @@ tap 'd12frosted/emacs-plus'
 mas 'Xcode', id: 497799835
 mas 'Microsoft Remote Desktop', id: 715768417
 mas 'OneDrive', id: 823766827
-mas 'The Unarchiver', id: 425424353cask 'xquartz'
+mas 'The Unarchiver', id: 425424353
+cask 'xquartz'
 brew 'aspell', args: ['with-lang-de', 'with-lang-en']
 brew 'autoconf'
 brew 'automake'
