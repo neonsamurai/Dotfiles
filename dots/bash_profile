@@ -7,6 +7,16 @@ export ALTERNATE_EDITOR=""
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
+# Python setup -----------------------------------------------------------------
+eval "$(pyenv init -)"
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/src
+source /usr/local/bin/virtualenvwrapper.sh
+#if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+
+# AWS CLI ----------------------------------------------------------------------
+export PATH=~/Library/Python/3.6/bin:$PATH
+
 # Aliases ----------------------------------------------------------------------
 eval "$(hub alias -s)"
 alias ll="ls -la"
@@ -24,15 +34,27 @@ if [ -f `brew --prefix`/etc/bash_completion ]; then
         . `brew --prefix`/etc/bash_completion
 fi
 
-if [ -f "$(brew --prefix bash-git-prompt)/share/gitprompt.sh" ]; then
-    GIT_PROMPT_THEME=Default
-    source "$(brew --prefix bash-git-prompt)/share/gitprompt.sh"
+if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
+  __GIT_PROMPT_DIR=$(brew --prefix)/opt/bash-git-prompt/share
+  source "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh"
 fi
 
 # NVM -------------------------------------------------------------------------
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 eval $(/usr/libexec/path_helper -s)
+
+# Auto (un)load .nvmrc upon cd()
+load-nvmrc() {
+  if [[ -f .nvmrc && -r .nvmrc ]]; then
+    nvm use
+  elif [[ $(nvm version) != $(nvm version default)  ]]; then
+    echo "Reverting to nvm default version"
+    nvm use default
+  fi
+}
+
+cd() { builtin cd "$@"; 'load-nvmrc'; }
 
 # RBENV -----------------------------------------------------------------------
 eval "$(rbenv init -)"

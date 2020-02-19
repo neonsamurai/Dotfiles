@@ -9,7 +9,7 @@ mkdir -p $HOME/src
 # Install Mac App Store Manager (dependency for Brewfile installation)
 brew install mas
 
-# Install Brewfile
+# Install erewfile
 brew bundle --file=$HOME/.dotfiles/Brewfile
 
 # Get dotfiles:

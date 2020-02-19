@@ -6,7 +6,7 @@ $HOME/.dotfiles/script/bootstrap
 DOTFILES=$HOME/.dotfiles
 
 # Link the dotfiles ------------------------------------------------------------
-$HOME/.dotfiles/lib/linkdots.sh
+./$HOME/.dotfiles/lib/linkdots.sh
 
 # Limits -----------------------------------------------------------------------
 PLIST=$HOME/.dotfiles/plist

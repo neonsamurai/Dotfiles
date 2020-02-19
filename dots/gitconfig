@@ -6,7 +6,7 @@ protocol = https
 
 [user]
 	name = Tim Jagodzinski
-	email = tim.jagodzinski@gmail.com
+	email = tim.jagodzinski@msasafety.com
 [core]
 	editor = emacsclient
 	autocrlf = input
