@@ -6,3 +6,4 @@ eslint-plugin-react
 js-beautify
 tern
 vmd
+@angular/cli

@@ -7,11 +7,6 @@ export ALTERNATE_EDITOR=""
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
-# Python setup -----------------------------------------------------------------
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/src
-source /usr/local/bin/virtualenvwrapper.sh
-
 # Aliases ----------------------------------------------------------------------
 eval "$(hub alias -s)"
 alias ll="ls -la"
@@ -19,7 +14,7 @@ alias lt="ls -alt"
 alias l.="ls -dl .*"
 alias ..="cd .."
 alias ...="cd ../.."
-alias emacs="open -a /Applications/Emacs.app"
+#alias emacs="open -a /Applications/Emacs.app"
 
 # Terminal prompt --------------------------------------------------------------
 export CLICOLOR=1
@@ -41,3 +36,5 @@ eval $(/usr/libexec/path_helper -s)
 
 # RBENV -----------------------------------------------------------------------
 eval "$(rbenv init -)"
+
+[ -s "/Users/timjagodzinski/.jabba/jabba.sh" ] && source "/Users/timjagodzinski/.jabba/jabba.sh"
